@@ -18,8 +18,9 @@ class MainActivity : AppCompatActivity() {
 
         addWord("Run", "move at a speed faster than a walk")
         addWord("Run", "move a speed slower than a run")
+
         introview.text = "Dictionary.IO"
-        
+
         genbutton.setOnClickListener {
             for(i in dictionary)
             {
