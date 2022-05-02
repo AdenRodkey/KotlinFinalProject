@@ -24,6 +24,7 @@ class Generator : Fragment() {
         tempWord.word = word
         tempWord.definition = definition
         dictionary.add(tempWord)
+
     }
 
     override fun onCreateView(
@@ -36,18 +37,33 @@ class Generator : Fragment() {
         val defview = View.findViewById<TextView>(R.id.definition)
         val genbutton = View.findViewById<Button>(R.id.genbutton)
         val introview = View.findViewById<TextView>(R.id.intro)
+        var i = 0;
 
         addWord("Run", "move at a speed faster than a walk")
-        addWord("Walk", "move a speed slower than a run")
+        addWord("Walk", "move at a speed slower than a run")
+        addWord("Talk", "To verbalize thoughts.")
+        addWord("Jog", "To move at a speed slower than a run, but faster than a walk.")
+        addWord("Study", "To apply oneself to the acquisition of knowledge, as by reading, investigation, or practice.")
+        addWord("Attend", "to go with as a concomitant or result; accompany")
+        addWord("Bewilder", "To confuse or puzzle completely; perplex")
+        addWord("Fascinate", "To arouse the interest or curiosity of")
+        addWord("Book", "A work of fiction or nonfiction in an electronic format:")
+        addWord("Indubitable", "That cannot be doubted; patently evident or certain; unquestionable.")
+
+
 
         introview.text = "Dictionary.IO"
 
         genbutton.setOnClickListener {
-            for(i in dictionary)
+            if(i >= dictionary.size)
             {
-                wordview.text = i.word
-                defview.text = i.definition
+                i = 0;
             }
+                    introview.text = ""
+                    wordview.text = dictionary.elementAt(i).word
+                    defview.text = dictionary.elementAt(i).definition
+                    i++
+
         }
 
         // Inflate the layout for this fragment
